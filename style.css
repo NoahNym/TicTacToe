@@ -1,0 +1,58 @@
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+
+body{
+    overflow: hidden;
+    height: 300vh;
+}
+
+.ttt{
+    font-family: sans-serif;
+    gap: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+
+
+#ttt-header{
+    background: rgb(37, 74, 143);
+    height: 80px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#ttt-header ul{
+    color: white;
+}
+
+.box{
+width: 125px;
+height: 125px;
+border: 2px solid;
+box-shadow: 0 0 0 2px;
+line-height: 105px;
+font-size: 120px;
+cursor: pointer;
+display: flex;
+justify-content: center;
+
+}
+
+
+.box-container{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 375px;
+    
+}
