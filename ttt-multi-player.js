@@ -44,7 +44,7 @@ const db = getDatabase(app);
 
 let xWins = 0
 let oWins = 0
-let clickRef
+
 
 
 
@@ -66,14 +66,17 @@ let options = ["", "", "", "", "", "", "", "", ""]
 let player = "x"
 let gameRunning = false
 let roundwon = false
-
+var sak = Text
+if ( sak == "click"){
+    console.log(sak)
+}
 
 function startGame() {
     gameRunning = true;
     boxes.forEach(box => box.addEventListener("click", boxClicked))
     if (gameRunning != true) {
-        boxes.forEach(box => box.remove("click"))
-        updateBox()
+        boxes.forEach(box => box.remove("click")) 
+        
     }
 }
 
@@ -92,44 +95,43 @@ function boxClicked() {
             updateBox(this, boxnumber);
             checkWinner()
             switchPlayer(boxnumber)
-            console.log(options)
+           console.log(options)
         }
 
     }
 }
+    console.log(sak)
+    //add another option value for firebase
 
 
+    function switchPlayer(boxnumber) {
 
+        if (player == "x") {
+            set(ref(db, "x/"), Text = boxnumber)
+            player = "o"
 
-function switchPlayer(boxnumber) {
+        }
+        else if (player == "o") {
+            set(ref(db, "o/"), Text = boxnumber)
+            player = "x"
 
-    if (player == "x") {
-        set(ref(db, "x/"), Text = boxnumber)
-        player = "o"
+        }
+        set(ref(db, "click/"), Text = boxnumber)
 
-    }
-    else if (player == "o") {
-        set(ref(db, "o/"), Text = boxnumber)
-        player = "x"
+       
 
-    }
-    set(ref(db, "click/"), Text = boxnumber)
+        console.log(Text)
+            
 
-
-
-   
-    console.log(Text)
-
-
-
-
-
+        
+          
+        
 }
 
 
-function updateBox(box) {
+function updateBox(box, index) {
 
-    options[Text] = player;
+    options[index] = player;
     box.textContent = player
 }
 
