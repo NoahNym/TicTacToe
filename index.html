@@ -10,19 +10,44 @@
 </head>
 
 <body>
-    <section class="ttt">
-        <header id="ttt-header">
+    <section id="menu">
+        <div id="menu-div">
+            <div class="menu left">
+                <h1> Rock Paper Scissors<h1>
+                        <a href="">Single Player</a>
+                        <br>
+                        <a href="">Multi Player</a>
+
+            </div>
+
+            <div class="menu right">
+                <h1>Tic Tac Toe<h1>
+                        <a href="index2.html">Single Player</a>
+                        <br>
+                        <a href="#ttt m">Multi Player</a>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section id="ttt m">
+        <header id="ttt-m-header">
 
             <ul>
                 X - Wins: <span id="x-wins">0</span>
             </ul>
-           
+
             <ul>
                 O - Wins: <span id="o-wins">0</span>
             </ul>
 
         </header>
-      
+
         <div class="box-container">
             <div class="box" boxnum="0"></div>
             <div class="box" boxnum="1"></div>
@@ -34,11 +59,16 @@
             <div class="box" boxnum="7"></div>
             <div class="box" boxnum="8"></div>
         </div>
-        <button class="restartButton" onclick="Restart()">Restart</button>
+        <button id="restartButton">Restart</button>
+
+        <button> <a href="#menu">back to start</a></button>
     </section>
 
 
-    <script src="main.js"></script>
+
+    <script type="module" src="ttt-multi-player.js"></script>
+
+
 </body>
 
 </html>
