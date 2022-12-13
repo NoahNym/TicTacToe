@@ -121,10 +121,7 @@ function boxClicked() {
        
 
         console.log(Text)
-            
-
         
-          
         
 }
 
