@@ -1,11 +1,11 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 
 import {
     getDatabase,
     ref,
-    onChildAdded,
+   onChildAdded,
     set,
-} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDjFRgoTGxsFqb_EwvcGACOkzeVnUivK2c",
@@ -19,11 +19,10 @@ const firebaseConfig = {
 };
 
 
+
 const app = initializeApp(firebaseConfig);
 
 const db = getDatabase(app);
-
-
 
 
 
@@ -49,7 +48,7 @@ let oWins = 0
 
 
 const boxes = document.querySelectorAll(".box");
-const restartButton = document.querySelectorAll("restartButton")
+
 
 const winConditions = [
     [0, 1, 2],
@@ -66,10 +65,9 @@ let options = ["", "", "", "", "", "", "", "", ""]
 let player = "x"
 let gameRunning = false
 let roundwon = false
-var sak = Text
-if ( sak == "click"){
-    console.log(sak)
-}
+let boxnumber
+
+
 
 function startGame() {
     gameRunning = true;
@@ -94,42 +92,44 @@ function boxClicked() {
         else {
             updateBox(this, boxnumber);
             checkWinner()
-            switchPlayer(boxnumber)
-           console.log(options)
+            
+           switchPlayer(boxnumber)
+           
         }
 
     }
 }
-    console.log(sak)
-    //add another option value for firebase
+   
+   
 
 
     function switchPlayer(boxnumber) {
-
+        
+ set(ref(db, "input"+boxnumber),  player)
+ let log = (ref(db, "input"+boxnumber), player)
         if (player == "x") {
-            set(ref(db, "x/"), Text = boxnumber)
+            
+            set(ref(db, "player/"), "o")
             player = "o"
 
         }
         else if (player == "o") {
-            set(ref(db, "o/"), Text = boxnumber)
+            
+            set(ref(db, "player/"),  "x")
             player = "x"
 
         }
-        set(ref(db, "click/"), Text = boxnumber)
+     
 
-       
+     console.log(log)
+   }
 
-        console.log(Text)
-        
-        
-}
 
 
 function updateBox(box, index) {
-
-    options[index] = player;
-    box.textContent = player
+    
+    options[index] = (ref(db, "input"+boxnumber), player);
+    box.textContent = (ref(db, "input"+boxnumber), player)
 }
 
 function checkWinner() {
@@ -159,15 +159,17 @@ function checkWinner() {
         if (player == "x") {
             if (roundwon == false) {
                 xWins++
+                set(ref(db, "xWins/"), xWins)
                 roundwon = true
-                setTimeout(alert.bind(null, "x" + " Won"))
+                document.getElementById("winner").innerText= "X" + " Won"
             }
         }
         if (player == "o") {
             if (roundwon == false) {
                 oWins++
+                set(ref(db, "oWins/"), oWins)
                 roundwon = true
-                setTimeout(alert.bind(null, "o" + " Won"))
+                document.getElementById("winner").innerText= "O" + " Won"
             }
         }
 
@@ -183,6 +185,16 @@ document.getElementById("restartButton").addEventListener("click", function () {
     boxes.forEach(box => box.textContent = "")
     player = "x"
     roundwon = false
+    document.getElementById("winner").innerText= "" 
+    set(ref(db, "input0"),  "")
+    set(ref(db, "input1"),  "")
+    set(ref(db, "input2"),  "")
+    set(ref(db, "input3"),  "")
+    set(ref(db, "input4"),  "")
+    set(ref(db, "input5"),  "")
+    set(ref(db, "input6"),  "")
+    set(ref(db, "input7"),  "")
+    set(ref(db, "input8"),  "")
 })
 
 

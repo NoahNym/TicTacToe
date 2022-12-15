@@ -85,7 +85,7 @@ function random() {
 
 
 function pcClick(randomItem) {
-console.log(options)
+    console.log(options)
 
     if (gameRunning == true) {
         switchClicker()
@@ -159,7 +159,7 @@ function checkWinner() {
             if (roundwon == false) {
                 xWins++
                 roundwon = true
-                setTimeout(alert.bind(null, "x" + " Won"))
+                document.getElementById("winner").innerText= "x" + " Won"
                 console.log(options)
             }
         }
@@ -167,7 +167,7 @@ function checkWinner() {
             if (roundwon == false) {
                 oWins++
                 roundwon = true
-                setTimeout(alert.bind(null, "o" + " Won"))
+                document.getElementById("winner").innerText= "o" + " Won"
                 console.log(options)
             }
         }
@@ -176,7 +176,7 @@ function checkWinner() {
         document.getElementById("o-wins").innerHTML = oWins
 
     }
-    
+
 }
 
 function Restart() {
@@ -186,6 +186,6 @@ function Restart() {
     player = "x"
     clicker = "x"
     roundwon = false
-}
+}    document.getElementById("winner").innerText= ""
 
 startGame()
