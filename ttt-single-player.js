@@ -146,6 +146,9 @@ function checkWinner() {
         }
         if (boxA == boxB && boxB == boxC) {
             roundWon = true;
+            if(document.innerText == player){
+                forEach(box => box.AddA)
+            }
             break;
         }
     }
