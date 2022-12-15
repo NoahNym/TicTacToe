@@ -33,7 +33,7 @@ body{
 #menu-div{
     height: 80%;
     width: 80%;
-    background: linear-gradient(20deg,rgb(0, 0, 41) 0%,rgb(77, 149, 216) 180%);
+    background: linear-gradient(20deg,rgb(0, 0, 41) 0%,rgb(67, 154, 241) 180%);
     display: flex;
     align-items: center;
     justify-content: space-around;
