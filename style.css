@@ -41,7 +41,13 @@ body {
   border-radius: 20px;
 }
 
-
+.menu-choose {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
 
 .menu {
   height: 100%;
@@ -89,11 +95,11 @@ button {
 a {
   text-decoration: none;
   color: white;
-
+  font-size: 1.5rem;
 }
 
-a:hover {
-  transform: scale(1.1);
+.a:hover {
+  transform: scale(1.6);
 }
 
 
@@ -119,6 +125,15 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.ttt-b {
+  margin-bottom: 10px;
+}
+
+#rps {
+  height: 95px;
+  font-size: 1.4rem;
 }
 
 #ttt-header ul {
