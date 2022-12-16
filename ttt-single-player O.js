@@ -19,8 +19,8 @@ const winConditions = [
 ];
 
 let options = ["", "", "", "", "", "", "", "", ""]
-player = "x"
-clicker = "x"
+player = "o"
+clicker = "o"
 let gameRunning = false
 let roundwon = false
 
@@ -61,12 +61,12 @@ function boxClicked() {
 
 function switchClicker() {
 
-    if (clicker == "x") {
-        clicker = "o"
+    if (clicker == "o") {
+        clicker = "x"
 
     }
     else {
-        clicker = "x"
+        clicker = "o"
 
     }
 
@@ -121,8 +121,8 @@ function pcClick(randomItem) {
 
 function updateBox(box, index) {
 
-    options[index] = "x";
-    box.innerHTML = "x"
+    options[index] = "o";
+    box.innerHTML = "o"
 
 
 
@@ -146,7 +146,7 @@ function checkWinner() {
         }
         if (boxA == boxB && boxB == boxC) {
             roundWon = true;
-            if (document.innerText == player) {
+            if(document.innerText == player){
                 forEach(box => box.AddA)
             }
             break;
@@ -158,11 +158,11 @@ function checkWinner() {
 
         gameRunning = false
 
-        if (clicker == "x") {
+        if (clicker == "o") {
             if (roundwon == false) {
                 xWins++
                 roundwon = true
-                document.getElementById("winner").innerText = "x" + " Won"
+                document.getElementById("winner").innerText= "o" + " Won"
                 console.log(options)
             }
         }
@@ -170,7 +170,7 @@ function checkWinner() {
             if (roundwon == false) {
                 oWins++
                 roundwon = true
-                document.getElementById("winner").innerText = "o" + " Won"
+                document.getElementById("winner").innerText= "X" + " Won"
                 console.log(options)
             }
         }
@@ -186,9 +186,9 @@ function Restart() {
     gameRunning = true
     options = ["", "", "", "", "", "", "", "", ""]
     boxes.forEach(box => box.textContent = "")
-    player = "x"
-    clicker = "x"
+    player = "o"
+    clicker = "o"
     roundwon = false
-} document.getElementById("winner").innerText = ""
+}    document.getElementById("winner").innerText= ""
 
 startGame()
