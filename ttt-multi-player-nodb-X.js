@@ -124,7 +124,7 @@ function boxClicked() {
 
 
 
-function updateBox(box, index, boxnumber) {
+function updateBox( index, boxnumber) {
 
     options[index] = (ref(db, "input" + boxnumber), player);
     document.getElementById("0").innerText = options[0] 
