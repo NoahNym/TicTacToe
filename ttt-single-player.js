@@ -189,6 +189,6 @@ function Restart() {
     player = "x"
     clicker = "x"
     roundwon = false
-} document.getElementById("winner").innerText = ""
-
+    document.getElementById("winner").innerText = ""
+}
 startGame()

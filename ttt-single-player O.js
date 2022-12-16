@@ -95,8 +95,8 @@ function pcClick(randomItem) {
 
 
         if (options[randomItem] == "") {
-            options[randomItem] = "o"
-            box.innerHTML = "o"
+            options[randomItem] = "x"
+            box.innerHTML = "x"
         }
         else {
             random()
@@ -146,7 +146,7 @@ function checkWinner() {
         }
         if (boxA == boxB && boxB == boxC) {
             roundWon = true;
-            if(document.innerText == player){
+            if (document.innerText == player) {
                 forEach(box => box.AddA)
             }
             break;
@@ -160,17 +160,17 @@ function checkWinner() {
 
         if (clicker == "o") {
             if (roundwon == false) {
-                xWins++
+                oWins++
                 roundwon = true
-                document.getElementById("winner").innerText= "o" + " Won"
+                document.getElementById("winner").innerText = "O" + " Won"
                 console.log(options)
             }
         }
         else {
             if (roundwon == false) {
-                oWins++
+                xWins++
                 roundwon = true
-                document.getElementById("winner").innerText= "X" + " Won"
+                document.getElementById("winner").innerText = "X" + " Won"
                 console.log(options)
             }
         }
@@ -189,6 +189,6 @@ function Restart() {
     player = "o"
     clicker = "o"
     roundwon = false
-}    document.getElementById("winner").innerText= ""
-
+    document.getElementById("winner").innerText = ""
+}
 startGame()
